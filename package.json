@@ -1,0 +1,28 @@
+{
+  "name": "esports-platform-monorepo",
+  "version": "1.0.0",
+  "description": "Esports tournament platform monorepo",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "packages/*"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "dev": "npm run dev --workspaces",
+    "clean": "npm run clean --workspaces"
+  },
+  "keywords": [
+    "esports",
+    "tournament",
+    "platform",
+    "react",
+    "typescript",
+    "nodejs"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
