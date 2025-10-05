@@ -1,0 +1,93 @@
+﻿{
+    "EndpointResults":  [
+                            {
+                                "Pass":  false,
+                                "Method":  "GET",
+                                "ExpectedStatus":  200,
+                                "Latency":  9843.2214,
+                                "ActualStatus":  127,
+                                "Error":  "Unable to connect to the remote server",
+                                "Test":  "Server Health",
+                                "Endpoint":  "/api/health"
+                            },
+                            {
+                                "Pass":  false,
+                                "Method":  "OPTIONS",
+                                "ExpectedStatus":  200,
+                                "Latency":  5690.2565,
+                                "ActualStatus":  127,
+                                "Error":  "Unable to connect to the remote server",
+                                "Test":  "CORS Preflight",
+                                "Endpoint":  "/api/events"
+                            },
+                            {
+                                "Pass":  false,
+                                "Method":  "GET",
+                                "ExpectedStatus":  200,
+                                "Latency":  6856.6244000000006,
+                                "ActualStatus":  127,
+                                "Error":  "Unable to connect to the remote server",
+                                "Test":  "List Events",
+                                "Endpoint":  "/api/events"
+                            },
+                            {
+                                "Pass":  false,
+                                "Method":  "GET",
+                                "ExpectedStatus":  401,
+                                "Latency":  5346.0791,
+                                "ActualStatus":  127,
+                                "Error":  "Unable to connect to the remote server",
+                                "Test":  "Dashboard (No Auth)",
+                                "Endpoint":  "/api/dashboard"
+                            },
+                            {
+                                "Pass":  false,
+                                "Method":  "GET",
+                                "ExpectedStatus":  401,
+                                "Latency":  7501.2692000000006,
+                                "ActualStatus":  127,
+                                "Error":  "Unable to connect to the remote server",
+                                "Test":  "Tickets (No Auth)",
+                                "Endpoint":  "/api/tickets"
+                            },
+                            {
+                                "Pass":  false,
+                                "Method":  "GET",
+                                "ExpectedStatus":  404,
+                                "Latency":  7516.0432,
+                                "ActualStatus":  127,
+                                "Error":  "Unable to connect to the remote server",
+                                "Test":  "Invalid Endpoint",
+                                "Endpoint":  "/api/nonexistent"
+                            },
+                            {
+                                "Pass":  false,
+                                "Method":  "POST",
+                                "ExpectedStatus":  401,
+                                "Latency":  7432.2219000000005,
+                                "ActualStatus":  127,
+                                "Error":  "Unable to connect to the remote server",
+                                "Test":  "Webhook Security",
+                                "Endpoint":  "/api/webhooks/payment"
+                            }
+                        ],
+    "PerformanceGrade":  "EXCELLENT",
+    "SuccessRate":  0,
+    "Environment":  {
+                        "BaseURL":  "http://localhost:5000",
+                        "SSLEnabled":  false,
+                        "EnvFileExists":  true
+                    },
+    "TestsPassed":  0,
+    "ServerHealth":  false,
+    "ConfidenceGrade":  "LOW",
+    "TestDate":  "2025-10-05 12:30:59",
+    "PerformanceMetrics":  {
+                               "AverageLatency":  0,
+                               "TestDuration":  82.0528872,
+                               "MaxLatency":  null,
+                               "TotalRequests":  7
+                           },
+    "TotalTests":  7,
+    "DeploymentConfidence":  30.0
+}

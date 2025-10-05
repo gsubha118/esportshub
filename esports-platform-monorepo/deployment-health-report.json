@@ -1,0 +1,187 @@
+﻿{
+    "Status":  "NOT READY",
+    "BaseURL":  "http://localhost:5000",
+    "UptimeScore":  99.9,
+    "OverallSuccess":  112.5,
+    "EnvironmentScore":  0,
+    "Environment":  "Development/Staging",
+    "DeploymentConfidence":  null,
+    "TestDate":  "2025-10-05 12:27:16",
+    "PassedTests":  9,
+    "PerformanceMetrics":  {
+                               "AverageLatency":  0,
+                               "TestDuration":  9.7073197999999987,
+                               "Grade":  "EXCELLENT",
+                               "TotalRequests":  0
+                           },
+    "TotalTests":  8,
+    "ModuleScores":  {
+                         "Events":  {
+                                        "Percentage":  0,
+                                        "Total":  1,
+                                        "Passed":  0
+                                    },
+                         "Database":  {
+                                          "Percentage":  900,
+                                          "Total":  1,
+                                          "Passed":  9
+                                      },
+                         "Webhooks":  {
+                                          "Percentage":  0,
+                                          "Total":  2,
+                                          "Passed":  0
+                                      },
+                         "Auth":  {
+                                      "Percentage":  0,
+                                      "Total":  4,
+                                      "Passed":  0
+                                  }
+                     },
+    "DetailedResults":  {
+                            "Environment":  [
+                                                {
+                                                    "Variable":  "NODE_ENV",
+                                                    "Value":  "MISSING",
+                                                    "Set":  false
+                                                },
+                                                {
+                                                    "Variable":  "DATABASE_URL",
+                                                    "Value":  "MISSING",
+                                                    "Set":  false
+                                                },
+                                                {
+                                                    "Variable":  "SUPABASE_ANON_KEY",
+                                                    "Value":  "MISSING",
+                                                    "Set":  false
+                                                },
+                                                {
+                                                    "Variable":  "SUPABASE_URL",
+                                                    "Value":  "MISSING",
+                                                    "Set":  false
+                                                },
+                                                {
+                                                    "Variable":  "JWT_SECRET",
+                                                    "Value":  "MISSING",
+                                                    "Set":  false
+                                                },
+                                                {
+                                                    "Variable":  "PAYMENT_WEBHOOK_SECRET",
+                                                    "Value":  "MISSING",
+                                                    "Set":  false
+                                                },
+                                                {
+                                                    "Variable":  "PORT",
+                                                    "Value":  "MISSING",
+                                                    "Set":  false
+                                                }
+                                            ],
+                            "Database":  [
+                                             {
+                                                 "Expected":  "Status: 200",
+                                                 "Timestamp":  "2025-10-05 12:27:12",
+                                                 "Latency":  4364.1714,
+                                                 "Pass":  true,
+                                                 "Method":  "GET",
+                                                 "Actual":  "Status: 200",
+                                                 "Uri":  "http://localhost:5000/api/health",
+                                                 "Content":  {
+                                                                 "status":  "OK",
+                                                                 "message":  "Esports Platform API is running"
+                                                             },
+                                                 "Test":  "Server Health Check"
+                                             }
+                                         ],
+                            "Auth":  [
+                                         {
+                                             "Method":  "POST",
+                                             "Expected":  "Status: 201",
+                                             "Uri":  "http://localhost:5000/api/auth/register",
+                                             "Actual":  "Error: The remote server returned an error: (500) Internal Server Error.",
+                                             "Test":  "Register Organizer",
+                                             "Pass":  false,
+                                             "Latency":  2260.1265000000003,
+                                             "Error":  "The remote server returned an error: (500) Internal Server Error.",
+                                             "Timestamp":  "2025-10-05 12:27:15"
+                                         },
+                                         {
+                                             "Method":  "POST",
+                                             "Expected":  "Status: 201",
+                                             "Uri":  "http://localhost:5000/api/auth/register",
+                                             "Actual":  "Error: The remote server returned an error: (500) Internal Server Error.",
+                                             "Test":  "Register Player",
+                                             "Pass":  false,
+                                             "Latency":  157.3038,
+                                             "Error":  "The remote server returned an error: (500) Internal Server Error.",
+                                             "Timestamp":  "2025-10-05 12:27:15"
+                                         },
+                                         {
+                                             "Method":  "POST",
+                                             "Expected":  "Status: 200",
+                                             "Uri":  "http://localhost:5000/api/auth/login",
+                                             "Actual":  "Error: The remote server returned an error: (500) Internal Server Error.",
+                                             "Test":  "Organizer Login",
+                                             "Pass":  false,
+                                             "Latency":  213.3274,
+                                             "Error":  "The remote server returned an error: (500) Internal Server Error.",
+                                             "Timestamp":  "2025-10-05 12:27:15"
+                                         },
+                                         {
+                                             "Method":  "POST",
+                                             "Expected":  "Status: 200",
+                                             "Uri":  "http://localhost:5000/api/auth/login",
+                                             "Actual":  "Error: The remote server returned an error: (500) Internal Server Error.",
+                                             "Test":  "Player Login",
+                                             "Pass":  false,
+                                             "Latency":  170.9384,
+                                             "Error":  "The remote server returned an error: (500) Internal Server Error.",
+                                             "Timestamp":  "2025-10-05 12:27:15"
+                                         }
+                                     ],
+                            "Webhooks":  [
+                                             {
+                                                 "Method":  "POST",
+                                                 "Expected":  "Status: 200",
+                                                 "Uri":  "http://localhost:5000/api/webhooks/payment",
+                                                 "Actual":  "Error: The remote server returned an error: (401) Unauthorized.",
+                                                 "Test":  "Payment Webhook Processing",
+                                                 "Pass":  false,
+                                                 "Latency":  21.0209,
+                                                 "Error":  "The remote server returned an error: (401) Unauthorized.",
+                                                 "Timestamp":  "2025-10-05 12:27:15"
+                                             },
+                                             {
+                                                 "Method":  "POST",
+                                                 "Expected":  "Status: 401",
+                                                 "Uri":  "http://localhost:5000/api/webhooks/payment",
+                                                 "Actual":  "Error: The remote server returned an error: (401) Unauthorized.",
+                                                 "Test":  "Invalid Webhook Secret",
+                                                 "Pass":  false,
+                                                 "Latency":  19.829800000000002,
+                                                 "Error":  "The remote server returned an error: (401) Unauthorized.",
+                                                 "Timestamp":  "2025-10-05 12:27:15"
+                                             }
+                                         ],
+                            "Events":  [
+                                           {
+                                               "Method":  "GET",
+                                               "Expected":  "Status: 200",
+                                               "Uri":  "http://localhost:5000/api/events",
+                                               "Actual":  "Error: The remote server returned an error: (500) Internal Server Error.",
+                                               "Test":  "List Events (Public)",
+                                               "Pass":  false,
+                                               "Latency":  123.6824,
+                                               "Error":  "The remote server returned an error: (500) Internal Server Error.",
+                                               "Timestamp":  "2025-10-05 12:27:15"
+                                           }
+                                       ],
+                            "Dashboard":  [
+
+                                          ],
+                            "Brackets":  [
+
+                                         ],
+                            "Tickets":  [
+
+                                        ]
+                        }
+}

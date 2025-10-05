@@ -1,0 +1,68 @@
+name: Deploy Database Migrations
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'database/migrations/**'
+      - '.github/workflows/deploy-db.yml'
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+
+    environment: production
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+
+    # For Supabase deployment
+    - name: Install Supabase CLI
+      if: env.DB_PROVIDER == 'supabase'
+      run: npm install -g @supabase/cli
+
+    - name: Link Supabase project
+      if: env.DB_PROVIDER == 'supabase'
+      working-directory: ./database
+      run: supabase link --project-ref ${{ secrets.SUPABASE_PROJECT_ID }}
+      env:
+        SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+
+    - name: Push database migrations to Supabase
+      if: env.DB_PROVIDER == 'supabase'
+      working-directory: ./database
+      run: supabase db push
+
+    # For Neon deployment (alternative)
+    - name: Install Neon CLI
+      if: env.DB_PROVIDER == 'neon'
+      run: npm install -g @neon/cli
+
+    - name: Run migrations on Neon
+      if: env.DB_PROVIDER == 'neon'
+      working-directory: ./database/migrations
+      run: |
+        for file in $(ls -1 *.sql | sort -V); do
+          echo "Running migration: $file"
+          psql ${{ secrets.NEON_DATABASE_URL }} -f "$file"
+        done
+      env:
+        PGSSLMODE: require
+
+    # For generic PostgreSQL deployment
+    - name: Run migrations on PostgreSQL
+      if: env.DB_PROVIDER == 'postgresql'
+      working-directory: ./database/migrations
+      run: |
+        for file in $(ls -1 *.sql | sort -V); do
+          echo "Running migration: $file"
+          psql ${{ secrets.DATABASE_URL }} -f "$file"
+        done
+      env:
+        PGSSLMODE: require
